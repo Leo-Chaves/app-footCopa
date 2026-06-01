@@ -1,0 +1,26 @@
+{
+  "expo": {
+    "name": "Copa Replay",
+    "slug": "copa-replay-mobile",
+    "version": "1.0.0",
+    "orientation": "portrait",
+    "scheme": "copareplay",
+    "userInterfaceStyle": "light",
+    "newArchEnabled": true,
+    "plugins": ["expo-router"],
+    "ios": {
+      "supportsTablet": true,
+      "bundleIdentifier": "com.copareplay.mobile"
+    },
+    "android": {
+      "package": "com.copareplay.mobile",
+      "edgeToEdgeEnabled": true
+    },
+    "web": {
+      "bundler": "metro"
+    },
+    "experiments": {
+      "typedRoutes": true
+    }
+  }
+}
