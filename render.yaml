@@ -21,6 +21,8 @@ services:
         value: "false"
       - key: OPENFOOTBALL_BASE_URL
         value: https://raw.githubusercontent.com/openfootball/worldcup.json/master
+      - key: APP_SEED_HISTORIC_WORLD_CUPS
+        value: "true"
       - key: WORLDCUP_2026_BASE_URL
         value: https://worldcup26.ir
 

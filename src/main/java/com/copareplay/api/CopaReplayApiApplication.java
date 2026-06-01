@@ -1,18 +1,47 @@
 package com.copareplay.api;
 
+import com.copareplay.api.repository.WorldCupRepository;
+import com.copareplay.api.service.AdminService;
 import java.net.URI;
 import java.net.URLDecoder;
 import java.nio.charset.StandardCharsets;
-
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.boot.ApplicationRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.context.annotation.Bean;
 
 @SpringBootApplication
 public class CopaReplayApiApplication {
 
+    private static final Logger logger = LoggerFactory.getLogger(CopaReplayApiApplication.class);
+
     public static void main(String[] args) {
         configureRenderDatabaseUrl();
         SpringApplication.run(CopaReplayApiApplication.class, args);
+    }
+
+    @Bean
+    ApplicationRunner seedHistoricWorldCups(
+            WorldCupRepository worldCupRepository,
+            AdminService adminService,
+            @Value("${app.seed-historic-world-cups:true}") boolean enabled
+    ) {
+        return args -> {
+            if (!enabled || worldCupRepository.count() > 0) {
+                return;
+            }
+
+            try {
+                logger.info("No historic World Cups found. Importing OpenFootball seed data.");
+                adminService.seed();
+                logger.info("Historic World Cups imported successfully.");
+            } catch (RuntimeException ex) {
+                logger.warn("Could not import historic World Cups automatically: {}", ex.getMessage());
+            }
+        };
     }
 
     private static void configureRenderDatabaseUrl() {
