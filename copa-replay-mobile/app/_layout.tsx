@@ -1,4 +1,4 @@
-import { Stack } from "expo-router";
+import { Stack, router, useSegments } from "expo-router";
 import { StatusBar } from "expo-status-bar";
 import { useEffect } from "react";
 import { SafeAreaProvider } from "react-native-safe-area-context";
@@ -7,11 +7,30 @@ import { useAuthStore } from "../src/store/authStore";
 import { colors } from "../src/styles/colors";
 
 export default function RootLayout() {
-  const { isLoading, loadStoredAuth } = useAuthStore();
+  const { isLoading, isAuthenticated, loadStoredAuth } = useAuthStore();
+  const segments = useSegments();
+  const currentRoute = segments[0];
 
   useEffect(() => {
     loadStoredAuth();
   }, [loadStoredAuth]);
+
+  useEffect(() => {
+    if (isLoading) {
+      return;
+    }
+
+    const isAuthRoute = currentRoute === "login" || currentRoute === "signup";
+
+    if (!isAuthenticated && !isAuthRoute) {
+      router.replace("/login");
+      return;
+    }
+
+    if (isAuthenticated && isAuthRoute) {
+      router.replace("/");
+    }
+  }, [currentRoute, isAuthenticated, isLoading]);
 
   if (isLoading) {
     return (

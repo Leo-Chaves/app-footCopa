@@ -35,7 +35,7 @@ export default function LoginScreen() {
       <Text style={globalStyles.title}>Entrar</Text>
       <Text style={globalStyles.subtitle}>Entre para jogar rodadas, salvar palpites e acompanhar sua pontuação.</Text>
       <View style={globalStyles.card}>
-        <AppInput label="E-mail" value={email} onChangeText={setEmail} placeholder="leo@email.com" keyboardType="email-address" autoCapitalize="none" />
+        <AppInput label="E-mail" value={email} onChangeText={setEmail} placeholder="seuemail@exemplo.com" keyboardType="email-address" autoCapitalize="none" />
         <AppInput label="Senha" value={password} onChangeText={setPassword} placeholder="Sua senha" secureTextEntry />
         <AppButton title="Entrar" loading={loading} onPress={handleLogin} />
       </View>

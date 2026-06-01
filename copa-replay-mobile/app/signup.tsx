@@ -36,8 +36,8 @@ export default function SignupScreen() {
       <Text style={globalStyles.title}>Criar conta</Text>
       <Text style={globalStyles.subtitle}>Crie sua conta para jogar o Desafio Histórico e salvar seus resultados.</Text>
       <View style={globalStyles.card}>
-        <AppInput label="Nome" value={name} onChangeText={setName} placeholder="Leo" />
-        <AppInput label="E-mail" value={email} onChangeText={setEmail} placeholder="leo@email.com" keyboardType="email-address" autoCapitalize="none" />
+        <AppInput label="Nome" value={name} onChangeText={setName} placeholder="Seu nome" />
+        <AppInput label="E-mail" value={email} onChangeText={setEmail} placeholder="seuemail@exemplo.com" keyboardType="email-address" autoCapitalize="none" />
         <AppInput label="Senha" value={password} onChangeText={setPassword} placeholder="Mínimo de 6 caracteres" secureTextEntry helperText="Use pelo menos 6 caracteres." />
         <AppButton title="Criar conta" loading={loading} onPress={handleSignup} />
       </View>
