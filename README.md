@@ -301,11 +301,42 @@ Dados Copa 2026:
 
 ## Deploy no Render
 
-1. Crie o banco PostgreSQL no Render.
-2. Configure as variaveis de ambiente.
-3. Use o Dockerfile do projeto.
-4. Garanta que o Render forneca `PORT`.
-5. No mobile, troque `API_BASE_URL` para a URL publica do backend.
+O projeto tem um Blueprint em `render.yaml` para criar:
+
+- `copa-replay-api`: Web Service Docker
+- `copa-replay-db`: PostgreSQL
+
+Passos:
+
+1. Faça commit e push do repositório para GitHub/GitLab/Bitbucket.
+2. No Render, abra `Blueprints` e crie um novo Blueprint usando este repositório.
+3. Confirme a criação do banco e do serviço.
+4. Aguarde o deploy terminar.
+5. Teste a API em:
+
+```text
+https://URL_DO_SERVICO_RENDER/health
+```
+
+Resposta esperada:
+
+```json
+{
+  "status": "OK"
+}
+```
+
+Depois do backend estar online, atualize o mobile em:
+
+```text
+copa-replay-mobile/src/config/api.ts
+```
+
+Exemplo:
+
+```ts
+export const API_BASE_URL = "https://URL_DO_SERVICO_RENDER";
+```
 
 ## Integrantes
 
