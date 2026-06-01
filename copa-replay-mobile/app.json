@@ -2,12 +2,15 @@
   "expo": {
     "name": "Copa Replay",
     "slug": "copa-replay-mobile",
+    "owner": "leo-chaves",
     "version": "1.0.0",
     "orientation": "portrait",
     "scheme": "copareplay",
     "userInterfaceStyle": "light",
     "newArchEnabled": true,
-    "plugins": ["expo-router"],
+    "plugins": [
+      "expo-router"
+    ],
     "ios": {
       "supportsTablet": true,
       "bundleIdentifier": "com.copareplay.mobile"
@@ -21,6 +24,18 @@
     },
     "experiments": {
       "typedRoutes": true
+    },
+    "extra": {
+      "router": {},
+      "eas": {
+        "projectId": "8f8082fd-3896-4304-8151-8f2489eb355a"
+      }
+    },
+    "runtimeVersion": {
+      "policy": "appVersion"
+    },
+    "updates": {
+      "url": "https://u.expo.dev/8f8082fd-3896-4304-8151-8f2489eb355a"
     }
   }
 }
