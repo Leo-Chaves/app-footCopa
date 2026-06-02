@@ -1,3 +1,9 @@
+## Integrantes
+
+- LEONARDO CHAVES DA PAZ 
+- NATHAN MANSUR TENÓRIO DE VASCONCELOS
+
+
 # Copa Replay
 
 Copa Replay e um app gamificado para testar memoria futebolistica em partidas historicas das Copas do Mundo. O usuario escolhe um modo de jogo, faz uma rodada de palpites, ganha pontos, acompanha o historico e tambem pode salvar palpites para a Copa 2026.
@@ -337,8 +343,3 @@ Exemplo:
 ```ts
 export const API_BASE_URL = "https://URL_DO_SERVICO_RENDER";
 ```
-
-## Integrantes
-
-- LEONARDO CHAVES DA PAZ 
-- NATHAN MANSUR TENÓRIO DE VASCONCELOS
