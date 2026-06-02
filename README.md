@@ -340,4 +340,5 @@ export const API_BASE_URL = "https://URL_DO_SERVICO_RENDER";
 
 ## Integrantes
 
-- Leonardo Chaves
+- LEONARDO CHAVES DA PAZ 
+- NATHAN MANSUR TENÓRIO DE VASCONCELOS
