@@ -52,8 +52,8 @@ export default function RootLayout() {
           contentStyle: { backgroundColor: colors.grayLight }
         }}
       >
-        <Stack.Screen name="index" options={{ headerShown: false }} />
-        <Stack.Screen name="login" options={{ title: "Login" }} />
+        <Stack.Screen name="index" options={{ headerShown: false, title: "Início" }} />
+        <Stack.Screen name="login" options={{ title: "Login", headerBackVisible: false, gestureEnabled: false }} />
         <Stack.Screen name="signup" options={{ title: "Cadastro" }} />
         <Stack.Screen name="desafio/index" options={{ title: "Desafio Histórico" }} />
         <Stack.Screen name="desafio/jogar" options={{ title: "Rodada" }} />
